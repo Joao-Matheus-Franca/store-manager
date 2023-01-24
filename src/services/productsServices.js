@@ -1,16 +1,15 @@
 const productsModels = require('../models/productsModels');
 
-const validateAllProducts = async (req, res) => {
+const validateAllProducts = async () => {
   const [result] = await productsModels.findAll();
-  if (result) res.status(200).json(result);
-  else res.status(404).json({ message: 'Products not found' });
+  if (result) return { products: result };
+  return { type: 'error', message: 'Products not found' };
 };
 
-const validateProduct = async (req, res) => { 
-  const { params: { id } } = req;
+const validateProduct = async (id) => { 
   const [[result]] = await productsModels.findById(id);
-  if (result) res.status(200).json(result);
-  else res.status(404).json({ message: 'Product not found' });
+  if (result) return { product: result };
+  return { type: 'error', message: 'Product not found' };
 };
 
 module.exports = {
