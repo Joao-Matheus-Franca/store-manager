@@ -15,9 +15,16 @@ const listOneProduct = async (req, res) => {
 
 const insertNewProduct = async (req, res) => {
   const { body: { name } } = req;
-  if (name) {
+  if (!name) { 
+    const error = await productsServices.validateNewProduct();
+    return res.status(400).json(error);
+  }
+  if (name.length < 5) {
+    return res.status(422).json({ message: '"name" length must be at least 5 characters long' });
+  }
+  if (name.length >= 5) {
     const result = await productsServices.validateNewProduct(name);
-    res.status(201).json(result);
+    return res.status(201).json(result);
   }
 };
 

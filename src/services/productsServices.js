@@ -14,6 +14,9 @@ const validateProduct = async (id) => {
 
 const validateNewProduct = async (person) => {
   try {
+    if (!person) { 
+      return { message: '"name" is required' };
+    }
     const [result] = await productsModels.newProduct(person);
     return { name: person, id: result.insertId };
   } catch (error) {
