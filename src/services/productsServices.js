@@ -12,7 +12,17 @@ const validateProduct = async (id) => {
   return { type: 'error', message: 'Product not found' };
 };
 
+const validateNewProduct = async (person) => {
+  try {
+    const [result] = await productsModels.newProduct(person);
+    return { name: person, id: result.insertId };
+  } catch (error) {
+    return { message: 'Ocorreu um erro ao cadastrar um produto' };
+  }
+};
+
 module.exports = {
   validateAllProducts,
   validateProduct,
+  validateNewProduct,
 };
