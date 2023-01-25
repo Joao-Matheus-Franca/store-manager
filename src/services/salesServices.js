@@ -23,6 +23,19 @@ const validateSales = async (sales) => {
   };
 };
 
+const listAllSales = async () => {
+  const [result] = await newSale.findAll();
+  return result;
+};
+
+const listOneSale = async (id) => { 
+  const [result] = await newSale.findById(id);
+  if (result.length > 1) return result;
+  return { message: 'Sale not found' };
+};
+
 module.exports = {
   validateSales,
+  listAllSales,
+  listOneSale,
 };

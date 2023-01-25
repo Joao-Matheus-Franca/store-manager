@@ -11,6 +11,21 @@ const registrySaleProduct = async (sales) => {
   return result.insertId;
 };
 
+const findAll = () => connection.execute(`
+SELECT sale_id AS saleId, date, product_id AS productId, quantity 
+FROM StoreManager.sales_products AS sp
+INNER JOIN StoreManager.sales AS sl
+ON sp.sale_id = sl.id`);
+
+const findById = (id) => connection.execute(`
+SELECT date, product_id AS productId, quantity 
+FROM StoreManager.sales_products AS sp
+INNER JOIN StoreManager.sales AS sl
+ON sp.sale_id = sl.id
+WHERE sale_id = ?`, [id]);
+
 module.exports = {
   registrySaleProduct,
+  findAll,
+  findById,
 };
