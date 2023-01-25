@@ -28,8 +28,27 @@ const insertNewProduct = async (req, res) => {
   }
 };
 
+const updateProduct = async (req, res) => { 
+  const { params: { id } } = req;
+  const product = req.body;
+  const validate = await productsServices.validateProduct(id);
+  const { type } = validate;
+  if (type) return res.status(404).json(validate);
+  if (!product.name) { 
+    return res.status(400).json({ message: '"name" is required' });
+  }
+  if (product.name.length < 5) {
+    return res.status(422).json({ message: '"name" length must be at least 5 characters long' });
+  }
+  if (product.name.length >= 5) {
+    const result = await productsServices.validateUpdate(product, id);
+    return res.status(200).json(result);
+  }
+}; 
+
 module.exports = {
   listProducts,
   listOneProduct,
   insertNewProduct,
+  updateProduct,
 };

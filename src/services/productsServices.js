@@ -24,8 +24,15 @@ const validateNewProduct = async (person) => {
   }
 };
 
+const validateUpdate = async (product, id) => { 
+  const [result] = await productsModels.updateProduct(product, id); 
+  if (result.affectedRows > 0) return { id, name: product.name };
+  return { message: 'Product not found' };
+};
+
 module.exports = {
   validateAllProducts,
   validateProduct,
   validateNewProduct,
+  validateUpdate,
 };
