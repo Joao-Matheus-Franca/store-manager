@@ -10,8 +10,12 @@
 > <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height=40 alt="Docker icon"/>
 > <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height=40 alt="NodeJS icon"/>
 > <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" height=40 alt="Express icon"/>
+> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mocha/mocha-plain.svg" height=40 alt="Mocha icon"/>
+> <img src="https://camo.githubusercontent.com/7ecbd4531436e4f20c1dba52a4fd4ac367cfcc20a2f62cfe7a10f32da306afc6/687474703a2f2f636861696a732e636f6d2f696d672f636861692d6c6f676f2e706e67" height=40 alt="Chai icon"/>
+> <img src="https://sinonjs.org/assets/images/logo.png" height=40 alt="Sinon icon"/>
 ## 🧠 Desafios e aprendizados:
 * Aplicar o versionamento de códigos com o uso dos princípios do Git e GitHub
+* Fazer uso do método TDD para construir testes das camadas da API
 * Progredir na criação de APIs seguindo os princípios CRUD adicionando o uso de arquitetura em camadas Model, Service e Controller (MSC) para gerenciar processos
 ## 👨‍💻 Como executar:
 ⚠️ Recomenda-se o download e utilização do Visual Studio Code com a extensão Thunder Client, Docker e Docker Compose  ⚠️
